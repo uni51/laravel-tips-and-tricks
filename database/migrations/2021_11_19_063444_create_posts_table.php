@@ -14,8 +14,9 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
+            // $table->id();
+            $table->string('u_id')->unique();
+            $table->text('title');
             $table->text('content');
             $table->enum('status', ['published', 'draft']);
             $table->timestamp('created_date')->nullable();
