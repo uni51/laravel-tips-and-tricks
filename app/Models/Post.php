@@ -9,14 +9,18 @@ class Post extends Model
 {
     use HasFactory;
 
-     public $timestamps = false;
-
-//    const CREATED_AT = 'created_date';
-//    const UPDATED_AT = 'updated_date';
-
-//    protected $primaryKey = 'u_id';
-//    public $incrementing = false;
-//    protected $keyType = 'string';
+    const CREATED_AT = 'created_date';
+    const UPDATED_AT = 'updated_date';
 
     protected $guarded = [];
+
+    public function getDateAttribute()
+    {
+        return $this->created_date->diffForHumans();
+    }
+
+    public function setAuthorAttribute($value)
+    {
+        $this->attributes['author'] = 'Prof. '.strtoupper($value);
+    }
 }

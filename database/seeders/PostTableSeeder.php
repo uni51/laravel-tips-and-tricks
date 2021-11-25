@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\Post;
 
 class PostTableSeeder extends Seeder
 {
@@ -15,12 +16,6 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
-            DB::table('posts')->insert([
-                'title'   => Str::random(10),
-                'content' => Str::random(30),
-                'status'  => 'published'
-            ]);
-        }
+        Post::factory(50)->create();
     }
 }

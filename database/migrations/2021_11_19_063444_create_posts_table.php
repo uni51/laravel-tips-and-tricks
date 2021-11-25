@@ -16,8 +16,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
              $table->id();
-//            $table->string('u_id')->unique();
-            $table->text('title');
+            $table->string('title');
+            $table->string('author');
             $table->text('content');
             $table->enum('status', ['published', 'draft']);
             $table->timestamp('created_date')->default(DB::raw('CURRENT_TIMESTAMP'));;

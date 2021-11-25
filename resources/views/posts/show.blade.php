@@ -1,11 +1,25 @@
-<dl>
-    <dd>{{ $post->title }}</dd>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>
+               {{ $post->title }}
+            </h1>
 
-    <dt>status</dt>
-    <dd>{{ $post->status }}</dd>
+            <h2>
+                {{ $post->author }}
+            </h2>
 
-    <dd>{{ $post->content }}</dd>
+            <h4>
+                <b>status: </b>{{ $post->status }}
+            </h4>
 
-    <dt>Published at</dt>
-    <dd>{{ $post->updated_date }}</dd>
-</dl>
+            <p>
+                {{ $post->content }}
+            </p>
+
+            <p>
+                <b>Published at : </b> {{ $post->date }}
+            </p>
+        </div>
+    </div>
+</body>
